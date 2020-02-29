@@ -7,7 +7,7 @@ export default function Navbar() {
       <NavLink to="/" activeStyle={{fontWeight: "bold", color: "red"}} exact={true}><button>Home</button></NavLink>
       <NavLink to="/about" activeStyle={{fontWeight: "bold", color: "red"}} exact={true}><button>About</button></NavLink>
       <NavLink to="/discover" activeStyle={{fontWeight: "bold", color: "red"}} exact={true}><button>Search Pokemon</button></NavLink>
-      <NavLink to="/discover" activeStyle={{fontWeight: "bold", color: "red"}} exact={true}><button>Liked Pokemon</button></NavLink>
+      <NavLink to="/likedpokemon" activeStyle={{fontWeight: "bold", color: "red"}} exact={true}><button>Liked Pokemon</button></NavLink>
     </div>
   )
 }

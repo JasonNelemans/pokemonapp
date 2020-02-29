@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import SearchResult from '../components/SearchResult'
+import LikedPokemonPage from './LikedPokemonPage';
 
 export default function DiscoverPokemonPage() {
   const [searchText, setSearchText] = useState();
@@ -28,7 +29,16 @@ export default function DiscoverPokemonPage() {
     }
   }
 
-  console.log('pokeData: ', pokeData)
+  // console.log('pokeData: ', pokeData)
+
+  const giveDataHandler = (data) => {
+    return (
+      <LikedPokemonPage
+        name={data.name}
+      />
+    )
+  }
+  //How can I pass the data to the LikedPokemonPage?
   
   const condition = pokeData 
   ? <SearchResult 
@@ -36,6 +46,7 @@ export default function DiscoverPokemonPage() {
       weight={pokeData.weight}
       abilities={pokeData.abilities}
       height={pokeData.height}
+      giveData={giveDataHandler}
     /> 
   : ''
 
