@@ -42,6 +42,7 @@ export default function DiscoverPokemonPage(props) {
 
   const clickHandler = () => {
     setLikedPokemon([...likedPokemon, pokeData])
+    props.testingMethod(likedPokemon)
   }
   
   const condition = pokeData 
@@ -54,7 +55,6 @@ export default function DiscoverPokemonPage(props) {
     /> 
   : ''
 
-  console.log('LIKEDPOKMEON: ', likedPokemon)
   return (
     <div className="DiscoverPokemonPage">
       <h2>Hello, this is the discover page.</h2>
@@ -69,13 +69,13 @@ export default function DiscoverPokemonPage(props) {
       <button onClick={clickHandler}>Like this Pokemon.</button>
       <h3>These are your liked Pokemon:</h3>
       <ul>
-        {likedPokemon.map(liked => {
+        {/* {likedPokemon.map(liked => {
           return (
             <LikedPokemonPage 
               name={liked.name}
             />
           )
-        })}
+        })} */}
       </ul>
     </div>
   )
