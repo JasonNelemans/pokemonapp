@@ -11,8 +11,9 @@ export default function LikedPokemonPage(props) {
 
   return (
     <div>
-      <h3>This is a liked Pokemon page</h3>
+      <li>
       <p>{props.name}</p>
+      </li>
     </div>
   )
 }

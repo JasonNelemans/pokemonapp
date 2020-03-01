@@ -3,13 +3,14 @@ import React, {useState} from 'react';
 export default function SearchResult(props) {
   // const [searchData, setSearchData] = useState()
   
-  const clickHandler = () => {
-    props.giveData(props)
-  }
+  // const clickHandler = () => {
+  //   props.giveData(props)
+  // }
 
   // if(props) {
   //   setSearchData(props)
   // }
+
 
   return (
     <div className="SearchResult">
@@ -25,7 +26,6 @@ export default function SearchResult(props) {
           )
         })} </div>
       </div>
-      <button onClick={clickHandler}>Like this Pokemon.</button>
     </div>
   )
 }

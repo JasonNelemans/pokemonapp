@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
 import DiscoverPokemonPage from './Pages/DiscoverPokemonPage'
@@ -8,6 +8,8 @@ import NavBar from './components/NavBar'
 import LikedPokemonPage from './Pages/LikedPokemonPage';
 
 function App() {
+  const [likedPokemon, setLikedPokemon] = useState();
+
   return (
     <div className="App">
       <NavBar />

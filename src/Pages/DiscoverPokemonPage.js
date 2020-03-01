@@ -3,10 +3,13 @@ import axios from 'axios';
 import SearchResult from '../components/SearchResult'
 import LikedPokemonPage from './LikedPokemonPage';
 
-export default function DiscoverPokemonPage() {
+export default function DiscoverPokemonPage(props) {
   const [searchText, setSearchText] = useState();
   const [pokeData, setPokeData] = useState();
   const [renderMessage, setRenderMessage] = useState();
+  const array = []
+  const [likedPokemon, setLikedPokemon] = useState([]);
+
 
   const search = async () => {
     try {
@@ -31,14 +34,15 @@ export default function DiscoverPokemonPage() {
 
   // console.log('pokeData: ', pokeData)
 
-  const giveDataHandler = (data) => {
-    return (
-      <LikedPokemonPage
-        name={data.name}
-      />
-    )
-  }
+  // const giveDataHandler = (data) => {
+  //   setLikedPokemon(data)
+  //   console.log('Liked Pokemon: ', likedPokemon)
+  // }
   //How can I pass the data to the LikedPokemonPage?
+
+  const clickHandler = () => {
+    setLikedPokemon([...likedPokemon, pokeData])
+  }
   
   const condition = pokeData 
   ? <SearchResult 
@@ -46,10 +50,11 @@ export default function DiscoverPokemonPage() {
       weight={pokeData.weight}
       abilities={pokeData.abilities}
       height={pokeData.height}
-      giveData={giveDataHandler}
+      // giveData={giveDataHandler}
     /> 
   : ''
 
+  console.log('LIKEDPOKMEON: ', likedPokemon)
   return (
     <div className="DiscoverPokemonPage">
       <h2>Hello, this is the discover page.</h2>
@@ -61,6 +66,17 @@ export default function DiscoverPokemonPage() {
       <button onClick={search}>Search</button>
       <h4>{renderMessage}</h4>
       {condition}
+      <button onClick={clickHandler}>Like this Pokemon.</button>
+      <h3>These are your liked Pokemon:</h3>
+      <ul>
+        {likedPokemon.map(liked => {
+          return (
+            <LikedPokemonPage 
+              name={liked.name}
+            />
+          )
+        })}
+      </ul>
     </div>
   )
 }
